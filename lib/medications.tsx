@@ -1,8 +1,13 @@
 import { createContext, useContext, useState, useCallback } from 'react';
 import { format } from 'date-fns';
+import { ReactNode } from 'react';
 
 // Define types
 type Status = 'Pending' | 'Taken' | 'Missed';
+
+type Props = {
+  children: ReactNode;
+};
 
 type Medication = {
   id: string;
@@ -98,7 +103,7 @@ const MOCK_MEDICATIONS: Medication[] = [
 ];
 
 // Create a provider for the medications context
-export function MedicationsProvider({ children }) {
+export function MedicationsProvider({ children }: Props) {
   const [medications, setMedications] = useState<Medication[]>(MOCK_MEDICATIONS);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

@@ -70,49 +70,48 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 24,
     width: '100%',
-    maxWidth: 400,
   },
   title: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#333333',
+    color: '#111827',
     marginBottom: 12,
     textAlign: 'center',
   },
   message: {
     fontSize: 16,
-    color: '#666666',
+    color: '#4B5563',
     marginBottom: 24,
     textAlign: 'center',
   },
   buttonContainer: {
-  flexDirection: 'row',
-  justifyContent: 'space-evenly',
-  gap: 12,
-},
-button: {
-  flex: 1,
-  paddingVertical: 14,
-  borderRadius: 12,
-  alignItems: 'center',
-},
-cancelButton: {
-  backgroundColor: '#F3F4F6',
-},
-confirmButton: {
-  backgroundColor: '#4A90E2',
-},
-destructiveButton: {
-  backgroundColor: '#EF4444',
-},
-cancelButtonText: {
-  fontSize: 16,
-  fontWeight: '500',
-  color: '#374151',
-},
-confirmButtonText: {
-  fontSize: 16,
-  fontWeight: '600',
-  color: '#FFFFFF',
-},
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  button: {
+    flex: 1,
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+  cancelButton: {
+    backgroundColor: '#F3F4F6',
+  },
+  confirmButton: {
+    backgroundColor: '#4A90E2',
+  },
+  destructiveButton: {
+    backgroundColor: '#EF4444',
+  },
+  cancelButtonText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#374151',
+  },
+  confirmButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#FFFFFF',
+  },
 });

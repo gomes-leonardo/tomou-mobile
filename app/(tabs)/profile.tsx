@@ -6,22 +6,22 @@ import { useAuth } from '../../lib/auth';
 export default function ProfileScreen() {
   const router = useRouter();
   const { user, signOut } = useAuth();
-  
+
   const handleSignOut = async () => {
     try {
       await signOut();
       router.replace('/(auth)/login');
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error('Erro ao sair:', error);
     }
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Profile</Text>
+        <Text style={styles.title}>Perfil</Text>
       </View>
-      
+
       <ScrollView style={styles.content}>
         <View style={styles.profileSection}>
           <Image
@@ -31,82 +31,83 @@ export default function ProfileScreen() {
             style={styles.profileImage}
           />
           <View style={styles.profileInfo}>
-            <Text style={styles.profileName}>{user?.name || 'User Name'}</Text>
-            <Text style={styles.profileEmail}>{user?.email || 'user@example.com'}</Text>
+            <Text style={styles.profileName}>{user?.name || 'Nome do usuário'}</Text>
+            <Text style={styles.profileEmail}>{user?.email || 'usuario@email.com'}</Text>
           </View>
           <TouchableOpacity style={styles.editButton}>
-            <Text style={styles.editButtonText}>Edit</Text>
+            <Text style={styles.editButtonText}>Editar</Text>
           </TouchableOpacity>
         </View>
-        
+
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Preferences</Text>
-          
+          <Text style={styles.sectionTitle}>Preferências</Text>
+
           <View style={styles.settingItem}>
             <View style={styles.settingIconContainer}>
               <Bell size={20} color="#4A90E2" />
             </View>
             <View style={styles.settingContent}>
-              <Text style={styles.settingTitle}>Notifications</Text>
+              <Text style={styles.settingTitle}>Notificações</Text>
               <Switch
                 trackColor={{ false: '#E0E0E0', true: '#AED6F1' }}
-                thumbColor={true ? '#4A90E2' : '#F4F3F4'}
+                thumbColor={'#4A90E2'}
                 value={true}
               />
             </View>
           </View>
-          
+
           <View style={styles.settingItem}>
             <View style={styles.settingIconContainer}>
               <Moon size={20} color="#4A90E2" />
             </View>
             <View style={styles.settingContent}>
-              <Text style={styles.settingTitle}>Dark Mode</Text>
+              <Text style={styles.settingTitle}>Modo escuro</Text>
               <Switch
                 trackColor={{ false: '#E0E0E0', true: '#AED6F1' }}
-                thumbColor={false ? '#4A90E2' : '#F4F3F4'}
+                thumbColor={'#F4F3F4'}
                 value={false}
               />
             </View>
           </View>
         </View>
-        
+
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>More</Text>
-          
+          <Text style={styles.sectionTitle}>Mais</Text>
+
           <TouchableOpacity style={styles.menuItem}>
             <View style={styles.menuIconContainer}>
               <Users size={20} color="#4A90E2" />
             </View>
             <View style={styles.menuContent}>
-              <Text style={styles.menuTitle}>Care Team</Text>
+              <Text style={styles.menuTitle}>Equipe de cuidados</Text>
               <ChevronRight size={20} color="#A0A0A0" />
             </View>
           </TouchableOpacity>
-          
+
           <TouchableOpacity style={styles.menuItem}>
             <View style={styles.menuIconContainer}>
               <HelpCircle size={20} color="#4A90E2" />
             </View>
             <View style={styles.menuContent}>
-              <Text style={styles.menuTitle}>Help & Support</Text>
+              <Text style={styles.menuTitle}>Ajuda e suporte</Text>
               <ChevronRight size={20} color="#A0A0A0" />
             </View>
           </TouchableOpacity>
         </View>
-        
+
         <TouchableOpacity style={styles.signOutButton} onPress={handleSignOut}>
-          <LogOut size={20} color="#F44336" />
-          <Text style={styles.signOutText}>Sign Out</Text>
+          <LogOut size={20} color="#EF4444" />
+          <Text style={styles.signOutText}>Sair da conta</Text>
         </TouchableOpacity>
-        
-        <Text style={styles.versionText}>Version 1.0.0</Text>
+
+        <Text style={styles.versionText}>Versão 1.0.0</Text>
       </ScrollView>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F9FAFB',
@@ -133,6 +134,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
+    gap: 16,
   },
   profileImage: {
     width: 70,
@@ -141,7 +143,6 @@ const styles = StyleSheet.create({
   },
   profileInfo: {
     flex: 1,
-    marginLeft: 16,
   },
   profileName: {
     fontSize: 18,
@@ -179,6 +180,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: 16,
     marginBottom: 8,
+    letterSpacing: 0.2,
   },
   settingItem: {
     flexDirection: 'row',
@@ -186,6 +188,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
+    gap: 16,
   },
   settingIconContainer: {
     width: 40,
@@ -194,7 +197,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EAF4FD',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
   },
   settingContent: {
     flex: 1,
@@ -212,6 +214,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
+    gap: 16,
   },
   menuIconContainer: {
     width: 40,
@@ -220,7 +223,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#EAF4FD',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
   },
   menuContent: {
     flex: 1,
@@ -255,3 +257,4 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
 });
+

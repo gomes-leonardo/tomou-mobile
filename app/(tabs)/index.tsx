@@ -64,7 +64,7 @@ export default function HomeScreen() {
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Próximo Medicamento</Text>
           {nextMed ? (
-            <TouchableOpacity onPress={() => router.push(`/medication/${nextMed.id}`)}>
+            <TouchableOpacity onPress={() => router.push(`/medication/${String(nextMed.id)}`)} >
               <View style={styles.nextMedCard}>
                 <Text style={styles.medName}>{nextMed.name}</Text>
                 <Text style={styles.medTime}>{nextMed.times[0]}</Text>

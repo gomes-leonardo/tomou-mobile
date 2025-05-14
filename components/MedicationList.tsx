@@ -2,14 +2,9 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Clock, Check, X } from 'lucide-react-native';
 import { useMedications } from '../lib/medications';
+import { Medication } from '@/app/types/medication';
 
-type Medication = {
-  id: number;
-  name: string;
-  dosage: string;
-  times: string[];
-  status: 'Pending' | 'Taken' | 'Missed';
-};
+
 
 type Props = {
   medications: Medication[];
@@ -31,11 +26,11 @@ export default function MedicationList({ medications }: Props) {
 };
 
 
-  const handleMarkAsTaken = (id: number) => {
+  const handleMarkAsTaken = (id: string) => {
     updateMedicationStatus(id, 'Taken');
   };
 
-  const handleMarkAsMissed = (id: number) => {
+  const handleMarkAsMissed = (id: string) => {
     updateMedicationStatus(id, 'Missed');
   };
 
